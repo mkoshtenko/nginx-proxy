@@ -12,3 +12,5 @@
 [._]ss[a-gi-z]
 [._]sw[a-p]
 
+# Environment files
+*.env

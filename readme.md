@@ -11,12 +11,24 @@ NGINX is known for its high performance, stability, rich feature set, simple con
 
 ## 2. How to build and run
 
-Build docker image from nginx-amplify submodule, it will be used as custom nginx image.
-Type *y* when prompted in the output to confirm that you would like to remove the stopped container and images. 
-Be advised that this will also remove your build cache.
+Create files with necessary environment variables.
 
+Amplify environment 'amplify.env':
 ```
-./build-nginx-amplify.sh
+API_KEY=bxhsd89s8d9ds98762312hh123hh123
+AMPLIFY_IMAGENAME=my-dev-service
 ```
+For Amplify api_key register at https://amplify.nginx.com.
 
+Build environment '.env':
+```
+CERTBOT_EMAIL=contact@mydomain.com
+CERTBOT_DOMAIN=mydomain.com
+```
+Do not forget to replace values with your data.
+
+You can verify the environment with the config command, which prints resolved application config to the terminal:
+```
+docker-compose config
+```
 

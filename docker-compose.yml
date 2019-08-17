@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   nginxproxy:
     build:
@@ -9,6 +10,8 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
+    env_file:
+      - amplify.env
     volumes:
       - web-root:/var/www/html
       - ./nginx-conf:/etc/nginx/conf.d
@@ -26,4 +29,14 @@ services:
       - certbot-var:/var/lib/letsencrypt
     depends_on:
       - nginxproxy
-    command: certonly --webroot --webroot-path=/var/www/html --email sammy@example.com --agree-tos --no-eff-email --staging -d example.com  -d www.example.com
+    command: certonly --webroot --webroot-path=/var/www/html --email ${CERTBOT_EMAIL} --agree-tos --no-eff-email --staging -d ${CERTBOT_DOMAIN}  -d www.${CERTBOT_DOMAIN}
+
+volumes:
+  certbot-etc:
+  certbot-var:
+  web-root:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge   

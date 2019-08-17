@@ -1,0 +1,9 @@
+.git
+.gitignore
+Dockerfile
+*.md
+docker-compose.yml
+
+# ignore private env setup
+*.env
+
