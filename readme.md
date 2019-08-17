@@ -11,7 +11,10 @@ NGINX is known for its high performance, stability, rich feature set, simple con
 
 ## 2. How to build and run
 
-Build docker image from nginx-amplify submodule, it will be used as base for custom nginx image.
+Build docker image from nginx-amplify submodule, it will be used as custom nginx image.
+Type *y* when prompted in the output to confirm that you would like to remove the stopped container and images. 
+Be advised that this will also remove your build cache.
+
 ```
 ./build-nginx-amplify.sh
 ```
