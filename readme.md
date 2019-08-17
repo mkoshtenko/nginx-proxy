@@ -50,8 +50,16 @@ docker-compose config
 
 Run containers in the background:
 ```
+docker-compose build
+
 docker-compose up -d
 ```
+Using docker-compose ps, check the status of your services:
+```
+docker-compose ps
+```
+If everything was successful, nginxproxy service should be Up and the certbot container will have exited with a 0 status message
+
 
 
 
