@@ -11,6 +11,16 @@ NGINX is known for its high performance, stability, rich feature set, simple con
 
 ## 2. How to build and run
 
+Before start you can remove all cached data:
+```
+docker system prune -a
+```
+
+Update submodules:
+```
+git submodule update --init
+```
+
 Create files with necessary environment variables.
 
 Amplify environment 'amplify.env':
@@ -25,10 +35,23 @@ Build environment '.env':
 CERTBOT_EMAIL=contact@mydomain.com
 CERTBOT_DOMAIN=mydomain.com
 ```
+
+Create all environment templates:
+```
+./build_env.sh
+```
+
 Do not forget to replace values with your data.
 
 You can verify the environment with the config command, which prints resolved application config to the terminal:
 ```
 docker-compose config
 ```
+
+Run containers in the background:
+```
+docker-compose up -d
+```
+
+
 
